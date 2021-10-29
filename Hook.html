@@ -10,7 +10,9 @@ function getParameterByName(name) {
 	return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " ")); 
 }
 
-document.write(getParameterByName('x');
+var p_x = getParameter("x");
+
+alert(p_x);
 </script>
 
 </Body>
