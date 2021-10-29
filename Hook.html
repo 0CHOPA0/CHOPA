@@ -5,6 +5,23 @@
 <script>
 document.write(window.location.search);
 </script>
+  
+<script>
+        var p = window.location.search;
+ 
+        $.ajax({
+            type : 'post',
+            url : 'https://hooks.slack.com/services/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',
+            data : {"param":p},
+            dataType : 'application/json',
+            error: function(xhr, status, error){
+                alert(error);
+            }
+            success : function(json){
+                alert(json)
+            },
+        }); 
+</script>
 
 </Body>
 </Html>
