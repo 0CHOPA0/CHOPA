@@ -3,10 +3,14 @@
 <pre> This is CHOPA's WORLD !!! </pre>
 
 <script>
-const urlParams = url.searchParams;
+function getParameterByName(name) { 
+	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]"); 
+	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), 
+	results = regex.exec(location.search); 
+	return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " ")); 
+}
 
-document.write("test");
-document.write(urlParams.get('x') + '<br>');
+document.write(getParameterByName('x');
 </script>
 
 </Body>
