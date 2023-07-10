@@ -1,1 +1,1 @@
-alert(document.domain)
+alert("Hacked_Tenminds")
