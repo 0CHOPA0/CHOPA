@@ -11,7 +11,7 @@
             let resultText = "검색 결과가 없습니다.";
 
             for (let employee of employees) {
-                if (employee.Ccode === name) {
+                if (employee.Ccode === Ccode) {
                     resultText = `ClientName: ${employee.Cname}<br>Address: ${employee.Addr}<br>Application Field: ${employee.AppF}<br>Certificate Code: ${employee.Ccode}<br>Standard: ${employee.Std}<br>Certificate Status: ${employee.Cstat}<br>Certificate Due Date: ${employee.Cdate}`;
                     break;
                 }
