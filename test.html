@@ -6,13 +6,13 @@
     <title>Certificate Validator - Swiss Approval Korea</title>
     <script src="data.js"></script> <!-- JSON 데이터 로드 -->
     <script>
-        function searchEmployee() {
-            const Ccode = document.getElementById("nameInput").value.trim();
+        function searchData() {
+            const Ccode = document.getElementById("Ccode").value.trim();
             let resultText = "검색 결과가 없습니다.";
 
-            for (let employee of employees) {
-                if (employee.Ccode === Ccode) {
-                    resultText = `ClientName: ${employee.Cname}<br>Address: ${employee.Addr}<br>Application Field: ${employee.AppF}<br>Certificate Code: ${employee.Ccode}<br>Standard: ${employee.Std}<br>Certificate Status: ${employee.Cstat}<br>Certificate Due Date: ${employee.Cdate}`;
+            for (let D of CertificateData) {
+                if (D.Ccode === Ccode) {
+                    resultText = `ClientName: ${D.Cname}<br>Address: ${D.Addr}<br>Application Field: ${D.AppF}<br>Certificate Code: ${D.Ccode}<br>Standard: ${D.Std}<br>Certificate Status: ${D.Cstat}<br>Certificate Due Date: ${D.Cdate}`;
                     break;
                 }
             }
@@ -22,9 +22,9 @@
 </head>
 <body>
     <h2>Certificate Validator - Swiss Approval Korea</h2>
-    <label for="nameInput">Insert Certificate Code</label><br>
-    <input type="text" id="nameInput">
-    <button onclick="searchEmployee()">Validate</button>
+    <label for="CcodeInput">Insert Certificate Code</label><br>
+    <input type="text" id="CcodeInput">
+    <button onclick="searchData()">Validate</button>
     <div id="result" style="margin-top: 20px;"></div>
 </body>
 </html>
