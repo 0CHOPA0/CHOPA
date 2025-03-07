@@ -4,4 +4,5 @@ const employees = [
     { name: "박민수", id: "10003", email: "minsoo@example.com" },
     { name: "최지은", id: "10004", email: "jieun@example.com" },
     { name: "홍길동", id: "10005", email: "gildong@example.com" }
+    { name: "박기동", id: "15410", email: "gidongg@example.com" }    
 ];
