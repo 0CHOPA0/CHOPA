@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사원 정보 조회</title>
+    <script src="data.js"></script> <!-- JSON 데이터 로드 -->
+    <script>
+        function searchEmployee() {
+            const name = document.getElementById("nameInput").value.trim();
+            let resultText = "검색 결과가 없습니다.";
+
+            for (let employee of employees) {
+                if (employee.name === name) {
+                    resultText = `사번: ${employee.id}<br>이메일: ${employee.email}`;
+                    break;
+                }
+            }
+            document.getElementById("result").innerHTML = resultText;
+        }
+    </script>
+</head>
+<body>
+    <h2>사원 정보 조회</h2>
+    <label for="nameInput">이름 입력:</label>
+    <input type="text" id="nameInput">
+    <button onclick="searchEmployee()">조회</button>
+    <div id="result" style="margin-top: 20px;"></div>
+</body>
+</html>
