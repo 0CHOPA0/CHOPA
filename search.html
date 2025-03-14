@@ -5,78 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .intro-container {
-            position: relative;
-            width: 100%;
-            height: 400px;
-        }
-        .intro-bg {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        .intro-bg img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            filter: brightness(0.7) blur(2px); /* 밝기와 흐림 효과 적용 */
-        }
-        .intro-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        .intro-text h1 {
-            font-size: 5vw;
-            margin: 0;
-        }
-        .content {
-            padding: 20px;
-            text-align: center; /* 내용 중앙 정렬 */
-        }
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh; /* 최소 높이 100vh 설정 */
+    position: relative;
+}
 
-        .search-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
+/* 메뉴바 스타일 */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* 반투명 검정 배경 */
+    color: white;
+    padding: 10px 20px;
+    z-index: 1000; /* 다른 요소 위에 표시 */
+    opacity: 0; /* 초기에는 숨김 */
+    transition: opacity 0.3s ease; /* 부드러운 전환 효과 */
+}
 
-        #CcodeInput {
-            width: 80%; /* 또는 원하는 너비 */
-            max-width: 300px; /* 최대 너비 설정 */
-            margin-bottom: 10px;
-            padding: 5px;
-        }
+.navbar-content {
+    text-align: center;
+}
 
-        button {
-            padding: 5px 15px;
-        }
+.navbar-visible {
+    opacity: 1; /* 스크롤 시 나타남 */
+}
 
-        #result {
-            margin-top: 20px;
-            text-align: left; /* 결과 텍스트 왼쪽 정렬 */
-            max-width: 600px; /* 결과 텍스트의 최대 너비 */
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        @media (max-width: 768px) {
-            .intro-text h1 {
-                font-size: 8vw;
-            }
-        }
+/* 배경 이미지 스타일 */
+.intro-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+
+.intro-bg {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.intro-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.7) blur(2px); /* 어두움과 흐림 효과 */
+}
+
+/* 텍스트 스타일 */
+.intro-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.intro-text h1 {
+    font-size: 5vw;
+    margin: 0;
+}
+
+/* 콘텐츠 스타일 */
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#CcodeInput {
+    width: 80%;
+    max-width: 300px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+button {
+    padding: 5px 15px;
+}
+
+#result {
+    margin-top: 20px;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 검은 여백 스타일 */
+body::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* 여백 높이 설정 */
+    background-color: black;
+    z-index: 999; /* 다른 요소 아래에 표시 */
+}
+
     </style>
     <title>Certificate Validator - Swiss Approval Korea</title>
     <script src="js/data.js"></script> <!-- JSON 데이터 로드 -->
@@ -96,23 +135,49 @@
     </script>
 </head>
 <body>
-<div class="intro-container">
+    <!-- 메뉴바 -->
+    <div class="navbar">
+        <div class="navbar-content">
+            <span>Certificate Validator</span>
+            <!-- 필요에 따라 메뉴 항목 추가 -->
+        </div>
+    </div>
+
+    <!-- 배경 이미지와 텍스트 -->
+    <div class="intro-container">
         <div class="intro-bg">
-            <img width="2000" height="600" src="img/Certified.jpg" alt="" loading="lazy">
+            <img src="img/Certified.jpg" alt="Certified">
         </div>
         <div class="intro-text">
             <h1>Certificate Validator</h1>
             <h1>Swiss Approval Korea</h1>
         </div>
     </div>
-<div class="content">
-    <p>Here you can check the validity of a Certificate, by Swiss Approval International Inspection and Certification Body.</p>
-    <div class="search-container">
-        <label for="CcodeInput">Insert Certificate Code</label>
-        <input type="text" id="CcodeInput">
-        <button onclick="searchData()">Validate</button>
+
+    <!-- 콘텐츠 영역 -->
+    <div class="content">
+        <p>Here you can check the validity of a Certificate, by Swiss Approval International Inspection and Certification Body.</p>
+        <div class="search-container">
+            <label for="CcodeInput">Insert Certificate Code</label>
+            <input type="text" id="CcodeInput">
+            <button onclick="searchData()">Validate</button>
+        </div>
+        <div id="result"></div>
     </div>
-    <div id="result"></div>
-</div>
+
+    <script src="js/data.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            navbar.classList.add('navbar-visible');
+        } else {
+            navbar.classList.remove('navbar-visible');
+        }
+    });
+});
+    </script>
 </body>
 </html>
