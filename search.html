@@ -8,15 +8,26 @@
     <script>
         function searchData() {
             const Ccode = document.getElementById("CcodeInput").value.trim();
-            let resultText = "검색 결과가 없습니다.";
-
+            const result = document.getElementById("result");
+    
             for (let D of CertificateData) {
                 if (D.Ccode === Ccode) {
-                    resultText = `<br>ClientName: ${D.Cname}<br>Address: ${D.Addr}<br>Application Field: ${D.AppF}<br>Certificate Code: ${D.Ccode}<br>Standard: ${D.Std}<br>Certificate Status: ${D.Cstat}<br>Certificate Due Date: ${D.Cdate}`;
-                    break;
+                    result.innerHTML = `
+                        <p><span class="label">ClientName:</span> <span class="value">${D.Cname}</span></p>
+                        <p><span class="label">Address:</span> <span class="value">${D.Addr}</span></p>
+                        <p><span class="label">Application Field:</span> <span class="value">${D.AppF}</span></p>
+                        <p><span class="label">Certificate Code:</span> <span class="value">${D.Ccode}</span></p>
+                        <p><span class="label">Standard:</span> <span class="value">${D.Std}</span></p>
+                        <p><span class="label">Certificate Status:</span> <span class="value">${D.Cstat}</span></p>
+                        <p><span class="label">Certificate Due Date:</span> <span class="value">${D.Cdate}</span></p>
+                    `;
+                    result.style.display = 'block';
+                    return;
                 }
             }
-            document.getElementById("result").innerHTML = resultText;
+    
+            result.innerHTML = "<p>검색 결과가 없습니다.</p>";
+            result.style.display = 'block';
         }
     </script>
     <style>
@@ -117,6 +128,14 @@
         #CcodeInput {
             text-align: center; /* 텍스트를 가운데 정렬 */
         }
+
+        .label {
+            color: #888; /* 연한 회색 */
+        }
+
+        .value {
+            font-weight: bold; /* 굵은 글씨 */
+        }
     </style>
 </head>
 <body>
@@ -144,7 +163,7 @@
             <input type="text" id="CcodeInput"><br>
             <button onclick="searchData()">Validate</button>
         </div>
-        <div id="result"></div>
+        <div id="result" style="display: none;"></div>
     </div>
 
     <!-- 하단 바 -->
