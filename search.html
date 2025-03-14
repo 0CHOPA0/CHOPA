@@ -12,13 +12,14 @@
     
             for (let D of CertificateData) {
                 if (D.Ccode === Ccode) {
+                    const statusClass = D.Cstat.toLowerCase() === 'valid' ? 'status-valid' : 'status-invalid';
                     result.innerHTML = `
                         <p><span class="label">ClientName:</span> <span class="value">${D.Cname}</span></p>
                         <p><span class="label">Address:</span> <span class="value">${D.Addr}</span></p>
                         <p><span class="label">Application Field:</span> <span class="value">${D.AppF}</span></p>
                         <p><span class="label">Certificate Code:</span> <span class="value">${D.Ccode}</span></p>
                         <p><span class="label">Standard:</span> <span class="value">${D.Std}</span></p>
-                        <p><span class="label">Certificate Status:</span> <span class="value">${D.Cstat}</span></p>
+                        <p><span class="label">Certificate Status:</span> <span class="value ${statusClass}">${D.Cstat}</span></p>
                         <p><span class="label">Certificate Due Date:</span> <span class="value">${D.Cdate}</span></p>
                     `;
                     result.style.display = 'block';
@@ -135,6 +136,14 @@
 
         .value {
             font-weight: bold; /* 굵은 글씨 */
+        }
+
+        .status-valid {
+            color: green;
+        }
+
+        .status-invalid {
+            color: red;
         }
     </style>
 </head>
