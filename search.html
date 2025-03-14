@@ -36,7 +36,7 @@
             bottom: -100px;
             left: 0;
             width: 100%;
-            height: 200px;
+            height: 100px;
             background-color: black;
             z-index: 999;
             transition: all 0.3s ease;
@@ -136,7 +136,7 @@
             }
 
             // 하단 바 제어 (0~500px 스크롤 범위에서만 움직임)
-            const maxScroll = 800;
+            const maxScroll = 1500;
             if (scrollPosition <= maxScroll) {
                 footer.style.bottom = `${-100 + (scrollPosition / maxScroll * 100)}px`;
             } else {
