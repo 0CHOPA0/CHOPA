@@ -51,7 +51,7 @@
             padding: 20px;
             text-align: center;
             min-height: calc(100vh - 400px); /* 헤더 높이 고려 */
-            padding-bottom: 100px; /* 하단 바 높이 고려 */
+            padding-bottom: 300px; /* 하단 바 높이 고려 */
         }
 
         /* 기존 스타일 유지 */
@@ -136,9 +136,9 @@
             }
 
             // 하단 바 제어 (0~500px 스크롤 범위에서만 움직임)
-            const maxScroll = 3000;
+            const maxScroll = 500;
             if (scrollPosition <= maxScroll) {
-                footer.style.bottom = `${-100 + (scrollPosition / maxScroll * 100)}px`;
+                footer.style.bottom = `${-200 + (scrollPosition / maxScroll * 200)}px`;
             } else {
                 footer.style.bottom = '0px';
             }
