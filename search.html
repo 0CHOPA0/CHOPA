@@ -3,6 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Validator - Swiss Approval Korea</title>
+    <script src="js/data.js"></script> <!-- JSON 데이터 로드 -->
+    <script>
+        function searchData() {
+            const Ccode = document.getElementById("CcodeInput").value.trim();
+            let resultText = "검색 결과가 없습니다.";
+
+            for (let D of CertificateData) {
+                if (D.Ccode === Ccode) {
+                    resultText = `ClientName: ${D.Cname}<br>Address: ${D.Addr}<br>Application Field: ${D.AppF}<br>Certificate Code: ${D.Ccode}<br>Standard: ${D.Std}<br>Certificate Status: ${D.Cstat}<br>Certificate Due Date: ${D.Cdate}`;
+                    break;
+                }
+            }
+            document.getElementById("result").innerHTML = resultText;
+        }
+    </script>
     <style>
         body, html {
             margin: 0;
