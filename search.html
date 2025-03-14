@@ -5,150 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh; /* 최소 높이 100vh 설정 */
-    position: relative;
-}
-
-/* 메뉴바 스타일 */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* 반투명 검정 배경 */
-    color: white;
-    padding: 10px 20px;
-    z-index: 1000; /* 다른 요소 위에 표시 */
-    opacity: 0; /* 초기에는 숨김 */
-    transition: opacity 0.3s ease; /* 부드러운 전환 효과 */
-}
-
-.navbar-content {
-    text-align: center;
-}
-
-.navbar-visible {
-    opacity: 1; /* 스크롤 시 나타남 */
-}
-
-/* 배경 이미지 스타일 */
-.intro-container {
-    position: relative;
-    width: 100%;
-    height: 400px;
-}
-
-.intro-bg {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.intro-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    filter: brightness(0.7) blur(2px); /* 어두움과 흐림 효과 */
-}
-
-/* 텍스트 스타일 */
-.intro-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.intro-text h1 {
-    font-size: 5vw;
-    margin: 0;
-}
-
-/* 콘텐츠 스타일 */
-.content {
-    padding: 20px;
-    text-align: center;
-    min-height: calc(100vh - 400px); /* 브라우저 높이에서 intro-container 높이를 뺀 값 */
-}
-
-.extra-space {
-    height: 50vh; /* 뷰포트 높이의 50% */
-}
-        
-.search-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-}
-
-#CcodeInput {
-    width: 80%;
-    max-width: 300px;
-    margin-bottom: 10px;
-    padding: 5px;
-}
-
-button {
-    padding: 5px 15px;
-}
-
-#result {
-    margin-top: 20px;
-    text-align: left;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* 검은 여백 스타일 */
-body::after {
-    content: '';
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px; /* 여백 높이 설정 */
-    background-color: black;
-    z-index: 999; /* 다른 요소 아래에 표시 */
-}
-
-    </style>
-    <title>Certificate Validator - Swiss Approval Korea</title>
-    <script src="js/data.js"></script> <!-- JSON 데이터 로드 -->
-    <script>
-        function searchData() {
-            const Ccode = document.getElementById("CcodeInput").value.trim();
-            let resultText = "검색 결과가 없습니다.";
-
-            for (let D of CertificateData) {
-                if (D.Ccode === Ccode) {
-                    resultText = `ClientName: ${D.Cname}<br>Address: ${D.Addr}<br>Application Field: ${D.AppF}<br>Certificate Code: ${D.Ccode}<br>Standard: ${D.Std}<br>Certificate Status: ${D.Cstat}<br>Certificate Due Date: ${D.Cdate}`;
-                    break;
-                }
-            }
-            document.getElementById("result").innerHTML = resultText;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
-    </script>
+
+        /* 메뉴바 스타일 */
+        .navbar {
+            position: fixed;
+            top: -60px;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-visible {
+            top: 0;
+        }
+
+        /* 하단 바 스타일 */
+        .footer {
+            position: fixed;
+            bottom: -100px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .footer-visible {
+            bottom: 0;
+        }
+
+        /* 콘텐츠 고정을 위한 스타일 */
+        .content {
+            padding: 20px;
+            text-align: center;
+            min-height: calc(100vh - 400px); /* 헤더 높이 고려 */
+            padding-bottom: 150px; /* 하단 바 높이 고려 */
+        }
+
+        /* 기존 스타일 유지 */
+        .intro-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+        .intro-bg {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .intro-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.7) blur(2px); /* 어두움과 흐림 효과 */
+        }
+        .intro-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .intro-text h1 {
+            font-size: 5vw;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <!-- 메뉴바 -->
     <div class="navbar">
-        <div class="navbar-content">
-            <span>Certificate Validator</span>
-            <!-- 필요에 따라 메뉴 항목 추가 -->
-        </div>
+        <div class="navbar-content">Certificate Validator</div>
     </div>
 
-    <!-- 배경 이미지와 텍스트 -->
+    <!-- 헤더 영역 -->
     <div class="intro-container">
         <div class="intro-bg">
             <img src="img/Certified.jpg" alt="Certified">
@@ -161,7 +109,7 @@ body::after {
 
     <!-- 콘텐츠 영역 -->
     <div class="content">
-        <p>Here you can check the validity of a Certificate, by Swiss Approval International Inspection and Certification Body.</p>
+        <p>Here you can check the validity of a Certificate...</p>
         <div class="search-container">
             <label for="CcodeInput">Insert Certificate Code</label>
             <input type="text" id="CcodeInput">
@@ -170,20 +118,31 @@ body::after {
         <div id="result"></div>
     </div>
 
-    <script src="js/data.js"></script>
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const navbar = document.querySelector('.navbar');
+    <!-- 하단 바 -->
+    <div class="footer"></div>
 
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            navbar.classList.add('navbar-visible');
-        } else {
-            navbar.classList.remove('navbar-visible');
-        }
-    });
-});
+    <script>
+        // 스크롤 이벤트 핸들러
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const footer = document.querySelector('.footer');
+            const scrollPosition = window.scrollY;
+
+            // 상단 메뉴바 제어
+            if (scrollPosition > 100) {
+                navbar.classList.add('navbar-visible');
+            } else {
+                navbar.classList.remove('navbar-visible');
+            }
+
+            // 하단 바 제어 (0~500px 스크롤 범위에서만 움직임)
+            const maxScroll = 500;
+            if (scrollPosition <= maxScroll) {
+                footer.style.bottom = `${-100 + (scrollPosition / maxScroll * 100)}px`;
+            } else {
+                footer.style.bottom = '0px';
+            }
+        });
     </script>
-    <div class="extra-space"></div>
 </body>
 </html>
