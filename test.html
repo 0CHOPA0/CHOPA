@@ -25,6 +25,28 @@
             top: 0;
             left: 0;
         }
+
+        
+        .intro-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .intro-text h1 {
+            font-size: 5vw; /* 뷰포트 너비에 따라 글자 크기 조절 */
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .intro-text h1 {
+                font-size: 8vw; /* 작은 화면에서 더 큰 글자 크기 */
+            }
     </style>
     <title>Certificate Validator - Swiss Approval Korea</title>
     <script src="js/data.js"></script> <!-- JSON 데이터 로드 -->
@@ -44,7 +66,10 @@
     </script>
 </head>
 <body>
-    <div class="intro-bg"><img width="2000" height="600" src="img/Certified.jpg" class="attachment-sp-section-bg size-sp-section-bg" alt="" loading="lazy"></div>
+    <div class="intro-bg"><img width="2000" height="600" src="img/Certified.jpg" class="attachment-sp-section-bg size-sp-section-bg" alt="" loading="lazy">
+    <div class="intro-text">
+            <h1>Certificate Validator - Swiss Approval Korea</h1>
+    </div>
     <br><br>
     <h2>Certificate Validator - Swiss Approval Korea</h2>
     <label for="CcodeInput">Here you can check the validity of a Certificate, by Swiss Approval International Inspection and Certification Body.</label><br>
