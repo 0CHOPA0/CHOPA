@@ -136,7 +136,7 @@
             }
 
             // 하단 바 제어 (0~500px 스크롤 범위에서만 움직임)
-            const maxScroll = 1500;
+            const maxScroll = 3000;
             if (scrollPosition <= maxScroll) {
                 footer.style.bottom = `${-100 + (scrollPosition / maxScroll * 100)}px`;
             } else {
