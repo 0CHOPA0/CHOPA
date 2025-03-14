@@ -43,7 +43,35 @@
         }
         .content {
             padding: 20px;
+            text-align: center; /* 내용 중앙 정렬 */
         }
+
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #CcodeInput {
+            width: 80%; /* 또는 원하는 너비 */
+            max-width: 300px; /* 최대 너비 설정 */
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        button {
+            padding: 5px 15px;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: left; /* 결과 텍스트 왼쪽 정렬 */
+            max-width: 600px; /* 결과 텍스트의 최대 너비 */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
         @media (max-width: 768px) {
             .intro-text h1 {
                 font-size: 8vw;
@@ -77,13 +105,14 @@
             <h1>Swiss Approval Korea</h1>
         </div>
     </div>
-    <div class="content">
-        <p>Here you can check the validity of a Certificate, by Swiss Approval International Inspection and Certification Body.</p>
-        <br>
-        <label for="CcodeInput">Insert Certificate Code</label><br>
+<div class="content">
+    <p>Here you can check the validity of a Certificate, by Swiss Approval International Inspection and Certification Body.</p>
+    <div class="search-container">
+        <label for="CcodeInput">Insert Certificate Code</label>
         <input type="text" id="CcodeInput">
         <button onclick="searchData()">Validate</button>
-        <div id="result" style="margin-top: 20px;"></div>
     </div>
+    <div id="result"></div>
+</div>
 </body>
 </html>
