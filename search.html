@@ -76,8 +76,13 @@
 .content {
     padding: 20px;
     text-align: center;
+    min-height: calc(100vh - 400px); /* 브라우저 높이에서 intro-container 높이를 뺀 값 */
 }
 
+.extra-space {
+    height: 50vh; /* 뷰포트 높이의 50% */
+}
+        
 .search-container {
     display: flex;
     flex-direction: column;
@@ -179,5 +184,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
     </script>
+    <div class="extra-space"></div>
 </body>
 </html>
