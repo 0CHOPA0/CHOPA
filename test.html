@@ -10,23 +10,22 @@
             width: 100%;
             height: 100%;
         }
-        .intro-bg {
+        .intro-container {
+            position: relative;
             width: 100%;
             height: 400px;
+        }
+        .intro-bg {
+            width: 100%;
+            height: 100%;
             overflow: hidden;
-            position: relative;
         }
         .intro-bg img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center;
-            position: absolute;
-            top: 0;
-            left: 0;
         }
-
-        
         .intro-text {
             position: absolute;
             top: 50%;
@@ -37,16 +36,18 @@
             font-family: Arial, sans-serif;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
-
         .intro-text h1 {
-            font-size: 5vw; /* 뷰포트 너비에 따라 글자 크기 조절 */
+            font-size: 5vw;
             margin: 0;
         }
-
+        .content {
+            padding: 20px;
+        }
         @media (max-width: 768px) {
             .intro-text h1 {
-                font-size: 8vw; /* 작은 화면에서 더 큰 글자 크기 */
+                font-size: 8vw;
             }
+        }
     </style>
     <title>Certificate Validator - Swiss Approval Korea</title>
     <script src="js/data.js"></script> <!-- JSON 데이터 로드 -->
@@ -66,17 +67,22 @@
     </script>
 </head>
 <body>
-    <div class="intro-bg"><img width="2000" height="600" src="img/Certified.jpg" class="attachment-sp-section-bg size-sp-section-bg" alt="" loading="lazy">
-    <div class="intro-text">
-            <h1>Certificate Validator - Swiss Approval Korea</h1>
+<div class="intro-container">
+        <div class="intro-bg">
+            <img width="2000" height="600" src="img/Certified.jpg" alt="" loading="lazy">
+        </div>
+        <div class="intro-text">
+            <h1>Certificate Validator</h1>
+            <h1>Swiss Approval Korea</h1>
+        </div>
     </div>
-    <br><br>
-    <h2>Certificate Validator - Swiss Approval Korea</h2>
-    <label for="CcodeInput">Here you can check the validity of a Certificate, by Swiss Approval International Inspection and Certification Body.</label><br>
-    <br><br>
-    <label for="CcodeInput">Insert Certificate Code</label><br>
-    <input type="text" id="CcodeInput">
-    <button onclick="searchData()">Validate</button>
-    <div id="result" style="margin-top: 20px;"></div>
+    <div class="content">
+        <p>Here you can check the validity of a Certificate, by Swiss Approval International Inspection and Certification Body.</p>
+        <br>
+        <label for="CcodeInput">Insert Certificate Code</label><br>
+        <input type="text" id="CcodeInput">
+        <button onclick="searchData()">Validate</button>
+        <div id="result" style="margin-top: 20px;"></div>
+    </div>
 </body>
 </html>
