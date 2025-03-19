@@ -7,20 +7,20 @@
     <script src="js/data.js"></script> <!-- JSON 데이터 로드 -->
     <script>
         function searchData() {
-            const Ccode = document.getElementById("CcodeInput").value.trim();
+            const Cnum = document.getElementById("CnumInput").value.trim();
             const result = document.getElementById("result");
     
             for (let D of CertificateData) {
-                if (D.Ccode === Ccode) {
+                if (D.Cnum === Cnum) {
                     const statusClass = D.Cstat.toLowerCase() === 'valid' ? 'status-valid' : 'status-invalid';
                     result.innerHTML = `
-                        <p><span class="label">ClientName:</span> <span class="value">${D.Cname}</span></p>
-                        <p><span class="label">Address:</span> <span class="value">${D.Addr}</span></p>
-                        <p><span class="label">Application Field:</span> <span class="value">${D.AppF}</span></p>
-                        <p><span class="label">Certificate Code:</span> <span class="value">${D.Ccode}</span></p>
-                        <p><span class="label">Standard:</span> <span class="value">${D.Std}</span></p>
-                        <p><span class="label">Certificate Status:</span> <span class="value ${statusClass}">${D.Cstat}</span></p>
-                        <p><span class="label">Certificate Due Date:</span> <span class="value">${D.Cdate}</span></p>
+                        <p><span class="label">ClientName:</span>  <span class="value">${D.Cname}</span></p>
+                        <p><span class="label">Region:</span>  <span class="value">${D.Reg}</span></p>
+                        <p><span class="label">Certificate Number:</span>  <span class="value">${D.Cnum}</span></p>
+                        <p><span class="label">Fee schedule no.:</span>  <span class="value">${D.Fno}</span></p>
+                        <p><span class="label">Standard:</span>  <span class="value">${D.Std}</span></p>
+                        <p><span class="label">Certificate Status:</span>  <span class="value ${statusClass}">${D.Cstat}</span></p>
+                        <p><span class="label">Certificate Due Date:</span>  <span class="value">${D.Cdate}</span></p>
                     `;
                     result.style.display = 'block';
                     return;
@@ -140,7 +140,7 @@
             margin: 0;
         }
 
-        #CcodeInput {
+        #CnumInput {
 			width: 180px; /* 너비 증가 */
 			height: 18px; /* 높이 증가 */
 			font-size: 15px; /* 글자 크기 증가 */
@@ -160,6 +160,7 @@
         .value {
             font-weight: bold; /* 굵은 글씨 */
 			color: #333; /* 연한 검정 */
+			margin-left: 8px; /* 왼쪽 여백 추가 */
         }
 
         .status-valid {
@@ -201,8 +202,8 @@
     <div class="content">
         <p>Here you can check the validity of a Certificate, by Swiss Approval Inspection and Certification Body.</p>
         <div class="search-container">
-            <label for="CcodeInput">Insert Certificate Code</label><br>
-            <input type="text" id="CcodeInput"><br><br>
+            <label for="CnumInput">Insert Certificate Code</label><br>
+            <input type="text" id="CnumInput"><br><br>
 			        <div id="result" style="display: none;"></div>
             <button onclick="searchData()">Validate</button>
         </div>
