@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate Validator - Swiss Approval Korea</title>
+    <title>Certificate Validator - Swiss Approval</title>
     <script src="js/data.js"></script> <!-- JSON 데이터 로드 -->
     <script>
         function searchData() {
@@ -86,9 +86,19 @@
         /* 콘텐츠 고정을 위한 스타일 */
         .content {
             padding: 20px;
-            text-align: center;
+            text-align: left;
             min-height: calc(100vh - 400px); /* 헤더 높이 고려 */
+			padding-left: max(70px, 20vw); /* 왼쪽 여백 반응형 */
             padding-bottom: 300px; /* 하단 바 높이 고려 */
+			padding-top: 90px; /* 상단 높이 추가 */
+			
+			/* 글꼴 스타일 적용 */
+			font-family: Montserrat, sans-serif;
+			font-size: 15px;
+			font-weight: 500;
+			line-height: 2.5;
+			
+			color: #333; /* 연한 회색 */
         }
 
         /* 기존 스타일 유지 */
@@ -117,8 +127,12 @@
             transform: translate(-50%, -50%);
             text-align: center;
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: Oswald, sans-serif;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 4vw;
+            margin: 0;
+			font-weight: 500;
+			letter-spacing: 2px; /* 글자 사이 간격 추가 */
         }
 
         .intro-text h1 {
@@ -127,15 +141,25 @@
         }
 
         #CcodeInput {
-            text-align: center; /* 텍스트를 가운데 정렬 */
+			width: 180px; /* 너비 증가 */
+			height: 18px; /* 높이 증가 */
+			font-size: 15px; /* 글자 크기 증가 */
+			padding: 5px 10px; /* 내부 여백 추가 */
+            text-align: left; /* 텍스트를 가운데 정렬 */
         }
+		
+		button {
+			padding: 5px 4px; /* 버튼 크기 증가 */
+			font-size: 17px; /* 글자 크기 증가 */
+		}
 
         .label {
-            color: #888; /* 연한 회색 */
+            color: #444; /* 연한 회색 */
         }
 
         .value {
             font-weight: bold; /* 굵은 글씨 */
+			color: #333; /* 연한 검정 */
         }
 
         .status-valid {
@@ -145,12 +169,22 @@
         .status-invalid {
             color: red;
         }
+		
+		#result {
+			line-height: 1.7; /* 행간격 조정 */
+			margin-top: 8px; /* 상단 여백 추가 */
+			margin-bottom: 15px; /* 하단 여백 추가 */
+		}
+
+		#result p {
+			margin: 5px 0; /* 각 단락의 상하 여백 조정 */
+		}
     </style>
 </head>
 <body>
     <!-- 메뉴바 -->
     <div class="navbar">
-        <div class="navbar-content">Certificate Validator - Swiss Approval Korea</div>
+        <div class="navbar-content">Certificate Validator - Swiss Approval</div>
     </div>
 
     <!-- 헤더 영역 -->
@@ -159,25 +193,24 @@
             <img src="img/Certified.jpg" alt="Certified">
         </div>
         <div class="intro-text">
-            <h1>Certificate Validator</h1>
-            <h1>Swiss Approval Korea</h1>
+            <p>Certificate Validator</p>
         </div>
     </div>
 
     <!-- 콘텐츠 영역 -->
     <div class="content">
-        <p>Here you can check the validity of a Certificate, by Swiss Approval International Inspection and Certification Body.</p><br><br>
+        <p>Here you can check the validity of a Certificate, by Swiss Approval Inspection and Certification Body.</p>
         <div class="search-container">
-            <label for="CcodeInput">Insert Certificate Code</label><br><br>
-            <input type="text" id="CcodeInput"><br>
+            <label for="CcodeInput">Insert Certificate Code</label><br>
+            <input type="text" id="CcodeInput"><br><br>
+			        <div id="result" style="display: none;"></div>
             <button onclick="searchData()">Validate</button>
         </div>
-        <div id="result" style="display: none;"></div>
     </div>
 
     <!-- 하단 바 -->
     <div class="footer">
-        <div class="footer-content">© Swiss Approval Korea</div>
+        <div class="footer-content">© Swiss Approval</div>
     </div>
 
     <script>
